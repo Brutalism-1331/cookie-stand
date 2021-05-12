@@ -10,3 +10,12 @@ body{
   border-radius: 50%;
   position: inherit;
 }
+
+ul{
+  padding: 4em;
+  color: antiquewhite;
+  background-color: rgb(26, 19, 17);
+  border-radius: 50%;
+  text-align: center;
+  margin: 2em;
+}
