@@ -1,8 +1,7 @@
 'use strict';
-const myContainer = document.getElementById('container');
 const seattleList = document.getElementById('seattle-list');
 let seattle = {
-  locationName: 'Seattle',
+  // locationName: 'Seattle',
   custMin: 23,
   custMax: 65,
   avgSales: 6.3,
