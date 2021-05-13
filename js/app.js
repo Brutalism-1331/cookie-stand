@@ -1,8 +1,6 @@
 'use strict';
-
 const myContainer = document.getElementById('container');
 const seattleList = document.getElementById('seattle-list');
-
 let seattle = {
   locationName: 'Seattle',
   custMin: 23,
@@ -29,13 +27,8 @@ let seattle = {
     return
   }
 };
-
 seattle.dailySales();
-console.log(seattle.salesPerHour)
-console.log()
-
 const tokyoList = document.getElementById('tokyo-list');
-
 let tokyo = {
   locationName: 'Tokyo',
   custMin: 3,
@@ -62,11 +55,8 @@ let tokyo = {
     return
   }
 };
-
 tokyo.dailySales();
-
 const dubaiList = document.getElementById('dubai-list');
-
 let dubai = {
   locationName: 'Dubai',
   custMin: 11,
@@ -93,11 +83,8 @@ let dubai = {
     return
   }
 };
-
 dubai.dailySales();
-
 const parisList = document.getElementById('paris-list');
-
 let paris = {
   locationName: 'Paris',
   custMin: 20,
@@ -124,11 +111,8 @@ let paris = {
     return
   }
 };
-
 paris.dailySales();
-
 const limaList = document.getElementById('lima-list');
-
 let lima = {
   locationName: 'Lima',
   custMin: 23,
@@ -155,5 +139,4 @@ let lima = {
     return
   }
 };
-
 lima.dailySales();
