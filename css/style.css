@@ -1,21 +1,33 @@
 body{
-  background-color: rgb(52, 52, 52);
-  color: aliceblue;
-  padding: 3em;
-  text-shadow: black;
-  font-size:xx-large;
+  background-image: url(/img/360_F_73938050_ni0APCbbMGllhOGADOq3HhEYnLBwpkoS.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
 }
-
-#background{
-  border-radius: 50%;
-  position: inherit;
-}
-
-ul{
-  padding: 4em;
-  color: antiquewhite;
-  background-color: rgb(26, 19, 17);
-  border-radius: 50%;
+header{
+  background-image: url(/img/fish.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 14%;
   text-align: center;
-  margin: 2em;
+  font-size: 300%;
+  font-style: italic;
+  font-weight: bolder;
+  opacity: 0.9;
+  
+}
+ul{
+  background-image: url(/img/backgroundFlower.JPG);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto;
+  border-radius: 50%;
+  padding: 30em;
+  margin: 5em;
+  text-align: center;
+  opacity: 0.9;
+  font-size: 100%;
+  font-weight: bolder;
+  color: rgb(141, 133, 133);
 }
