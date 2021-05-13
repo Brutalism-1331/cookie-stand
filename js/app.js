@@ -16,7 +16,7 @@ let seattle = {
   },
   dailySales: function () {
     for (let i = 0; i < this.storeHoursArray.length; i++) {
-      let randomSales = this.randomCustPerHour();
+      let randomSales = Math.ceil(this.randomCustPerHour() * this.avgSales);
       this.salesPerHour.push(`${this.storeHoursArray[i]}: ${randomSales}`);
       this.dailySalesTotal += randomSales;
       let li = document.createElement('li');
@@ -31,6 +31,8 @@ let seattle = {
 };
 
 seattle.dailySales();
+console.log(seattle.salesPerHour)
+console.log()
 
 const tokyoList = document.getElementById('tokyo-list');
 
@@ -47,7 +49,7 @@ let tokyo = {
   },
   dailySales: function () {
     for (let i = 0; i < this.storeHoursArray.length; i++) {
-      let randomSales = this.randomCustPerHour();
+      let randomSales = Math.ceil(this.randomCustPerHour() * this.avgSales);
       this.salesPerHour.push(`${this.storeHoursArray[i]}: ${randomSales}`);
       this.dailySalesTotal += randomSales;
       let li = document.createElement('li');
@@ -78,7 +80,7 @@ let dubai = {
   },
   dailySales: function () {
     for (let i = 0; i < this.storeHoursArray.length; i++) {
-      let randomSales = this.randomCustPerHour();
+      let randomSales = Math.ceil(this.randomCustPerHour() * this.avgSales);
       this.salesPerHour.push(`${this.storeHoursArray[i]}: ${randomSales}`);
       this.dailySalesTotal += randomSales;
       let li = document.createElement('li');
@@ -109,7 +111,7 @@ let paris = {
   },
   dailySales: function () {
     for (let i = 0; i < this.storeHoursArray.length; i++) {
-      let randomSales = this.randomCustPerHour();
+      let randomSales = Math.ceil(this.randomCustPerHour() * this.avgSales);
       this.salesPerHour.push(`${this.storeHoursArray[i]}: ${randomSales}`);
       this.dailySalesTotal += randomSales;
       let li = document.createElement('li');
@@ -131,7 +133,7 @@ let lima = {
   locationName: 'Lima',
   custMin: 23,
   custMax: 65,
-  avgSales: 6.3,
+  avgSales: 4.6,
   storeHoursArray: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'],
   salesPerHour: [],
   dailySalesTotal: 0,
@@ -140,7 +142,7 @@ let lima = {
   },
   dailySales: function () {
     for (let i = 0; i < this.storeHoursArray.length; i++) {
-      let randomSales = this.randomCustPerHour();
+      let randomSales = Math.ceil(this.randomCustPerHour() * this.avgSales);
       this.salesPerHour.push(`${this.storeHoursArray[i]}: ${randomSales}`);
       this.dailySalesTotal += randomSales;
       let li = document.createElement('li');
