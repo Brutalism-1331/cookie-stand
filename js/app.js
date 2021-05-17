@@ -1,42 +1,112 @@
 'use strict';
 
 const storeHoursArray = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
+const salesDataTable = document.querySelector('table')
 let storeLocationArray = [];
 
-function GetLocationSalesData(locationName, custMin, custMax, avgSales) {
+function randomInt(max, min) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+// console.log(randomInt(65, 23));
+
+function GetLocationSalesData(locationName, custMin, custMax, averageSales) {
   this.locationName = locationName;
   this.custMin = custMin;
   this.custMax = custMax;
-  this.avgSales = avgSales;
+  this.avgSales = averageSales;
+
+  this.customersPerHour = [];
   this.salesPerHour = [];
   this.dailySalesTotal = 0;
-  storeLocationArray.push(this)
-  // this.randomCustPerHour = function () {
-  //   return getRandomInteger(this.custMax, this.custMin);
-  // }
-}
+  storeLocationArray.push(this);
+};
 
-function randomSales (min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
+// This function should use the randomInt() function and generate a randomized customer per hour for every hour that the store is open and return the value of each hour to the customersPerHour[],
+ 
+GetLocationSalesData.prototype.projectedCustomerPerHour = function () {
+  for (let i = 0; i < storeHoursArray.length; i++){
+    console.log('im in my for loop')
+  // randomInt(this.custMax, this.custMin);
+  this.customersPerHour.push(randomInt(this.custMax, this.custMin));
+  }
+};
+
+
+// This function should take the customersPerHour [] and then * each hour by the average sales of the shop location and then push those totals into salesPerHour[],
+// Each hour total needs to be added to each other and than added to dailySalesTotal.
+
+GetLocationSalesData.prototype.projectedCustomerSalesPerHour = function (){
+for (let i = 0; i < this.customersPerHour.length; i++){
+  this.salesPerHour.push(Math.floor(this.customersPerHour[i] * this.avgSales))
 }
-console.log(randomSales(1,5));
-// GetLocationSalesData.prototype.getRandomInteger = function (min, max){
+};
+
+//This function should take the salesPerHour[] and create a row of the table shown on the sales html page.
+//The table must have a daylily sales total and an all shops daylily total.
+
+GetLocationSalesData.prototype.createProjectedSalesTable = function (){
+
+};
+
+// This is the first new shop location but will call the rest once the above code is working with one location.
+
+let seattle = new GetLocationSalesData('Seattle', 23, 65, 6.3);
+
+seattle.projectedCustomerPerHour();
+seattle.projectedCustomerSalesPerHour();
+console.log(seattle);
+
+
+
+// randomCustPerHour: function () {
+//   //     return getRandomInteger(this.custMax, this.custMin);
+//   //   },
+
+
+
+
+
+
+
+// GetLocationSalesData.prototype.randomCustPerHour = function (){
+//   return Math.floor(Math.random() * (this.custMax - this.custMin + 1) + this.custMin);
 // };
-// getRandomInteger(1,5);
 
-GetLocationSalesData.prototype.dailySales = function () {
-  for (let i = 0; i < storeHoursArray.length; i++) {
-    console.log('this is random sales')
-    let randomSales = Math.ceil(this.randomCustPerHour() * this.avgSales);
-    this.salesPerHour.push(`${storeHoursArray[i]}: ${randomSales}`);
-    this.dailySalesTotal += randomSales;
-  };
-}
-  let seattle = new GetLocationSalesData ('Seattle', 23, 65, 6.3);
+// GetLocationSalesData.prototype.totalSoldPerHour = function () {
+//   for (let i = 0; i < storeHoursArray.length; i++){
+//     this.salesPerHour.push(Math.floor(this.avgSales * this.randomCustPerHour()));
+//   }
+//   return this.salesPerHour;
+// };
 
-  console.log(seattle);
 
-  console.log(storeLocationArray)
+
+  // GetLocationSalesData.prototype.randomCustPerHour = function () {
+    //   for (let i = 0; i < storeHoursArray.length; i++) {
+      //    randomInt(this.custMin, this.custMax);
+      //     this.custPerHour.push;
+      //   }
+      // };
+
+
+      // GetLocationSalesData.prototype.getRandomInteger = function (min, max){
+        // };
+        // getRandomInteger(1,5);
+
+  //       GetLocationSalesData.prototype.dailySales = function () {
+  //         for (let i = 0; i < storeHoursArray.length; i++) {
+  //           console.log('this is random sales')
+  //           let randomSales = Math.ceil(this.randomCustPerHour() * this.avgSales);
+  //           this.salesPerHour.push(`${storeHoursArray[i]}: ${randomSales}`);
+  //           this.dailySalesTotal += randomSales;
+  //         };
+  //       }
+
+  //       console.log('random cust', seattle.randomCustPerHour);
+  //       console.log(seattle.custPerHour);
+
+
+  // console.log(storeLocationArray)
 
 
 
