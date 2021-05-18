@@ -14,6 +14,7 @@ function GetLocationSalesData(locationName, custMin, custMax, averageSales) {
   this.salesPerHour = [];
   this.dailySalesTotal = 0;
   storeLocationArray.push(this);
+  this.callPrototypeFunctions();
 };
 // This function should use the randomInt() function and generate a randomized customer per hour for every hour that the store is open and return the value of each hour to the customersPerHour[],
 GetLocationSalesData.prototype.projectedCustomerPerHour = function () {
@@ -47,16 +48,16 @@ GetLocationSalesData.prototype.createProjectedSalesTable = function () {
   tr.appendChild(td)
   salesDataTable.appendChild(tr);
 };
-let seattle = new GetLocationSalesData('Seattle', 23, 65, 6.3);
-let tokyo = new GetLocationSalesData('Tokyo', 3, 24, 1.2);
-let dubai = new GetLocationSalesData('Dubai', 11, 38, 3.7);
-let paris = new GetLocationSalesData('Paris', 20, 38, 2.3);
-let lima = new GetLocationSalesData('Lima', 23, 65, 4.6);
 GetLocationSalesData.prototype.callPrototypeFunctions = function () {
   this.projectedCustomerPerHour();
   this.projectedCustomerSalesPerHour();
   this.createProjectedSalesTable();
 };
+new GetLocationSalesData('Seattle', 23, 65, 6.3);
+new GetLocationSalesData('Tokyo', 3, 24, 1.2);
+new GetLocationSalesData('Dubai', 11, 38, 3.7);
+new GetLocationSalesData('Paris', 20, 38, 2.3);
+new GetLocationSalesData('Lima', 23, 65, 4.6);
 // Create a for loop that runs the length of the store locations array and runs the callPrototype function,
 // i'm doing this because i want to make my code as dry as posable.
 // function runPrototype () {
@@ -67,13 +68,13 @@ GetLocationSalesData.prototype.callPrototypeFunctions = function () {
 
 // runPrototype();
 
-seattle.callPrototypeFunctions();
-tokyo.callPrototypeFunctions();
-dubai.callPrototypeFunctions();
-paris.callPrototypeFunctions();
-lima.callPrototypeFunctions();
-// // turn the call of my prototype individual functions into a single function.
-callPrototypeFunctions();
+// seattle.callPrototypeFunctions();
+// tokyo.callPrototypeFunctions();
+// dubai.callPrototypeFunctions();
+// paris.callPrototypeFunctions();
+// lima.callPrototypeFunctions();
+// // // turn the call of my prototype individual functions into a single function.
+// callPrototypeFunctions();
 
 
 
