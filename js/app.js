@@ -2,6 +2,7 @@
 const storeHoursArray = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 const salesDataTable = document.querySelector('table')
 const storeLocationArray = [];
+const hourlySalesArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 function randomInt(max, min) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
@@ -32,6 +33,21 @@ GetLocationSalesData.prototype.projectedCustomerSalesPerHour = function () {
 //This function should take the salesPerHour[] and create a row of the table shown on the sales html page.
 //The table must have a daylily sales total and an all shops daylily total.
 // step 1 create element, step 2, give textcontent, step 3 append child.
+function createSalesDataTableHead() {
+  let tr = document.createElement('tr');
+  let td = document.createElement('td');
+  td.textContent = 'Location:';
+  tr.appendChild(td)
+  for (let i = 0; i < storeHoursArray.length; i++) {
+    let td = document.createElement('td');
+    td.textContent = storeHoursArray[i];
+    tr.appendChild(td)
+  }
+  td = document.createElement('td');
+  td.textContent = 'Total:';
+  tr.appendChild(td)
+  salesDataTable.appendChild(tr);
+};
 GetLocationSalesData.prototype.createProjectedSalesTable = function () {
   let tr = document.createElement('tr');
   let td = document.createElement('td');
@@ -48,34 +64,35 @@ GetLocationSalesData.prototype.createProjectedSalesTable = function () {
   tr.appendChild(td)
   salesDataTable.appendChild(tr);
 };
+function createSalesDataFooter() {
+  let tr = document.createElement('tr');
+  let td = document.createElement('td');
+  td.textContent = 'Hour Total:';
+  tr.appendChild(td);
+  for (let i = 0; i < storeLocationArray.length; i++) {
+    let thisStore = storeLocationArray[i];
+    for (let i = 0; i < thisStore.salesPerHour.length; i++) {
+      let hourSale = thisStore.salesPerHour[i];
+      hourlySalesArray[i] += hourSale;
+    }
+  };
+  salesDataTable.appendChild(tr);
+  for (let i = 0; i < hourlySalesArray.length; i++) {
+    td = document.createElement('td');
+    td.textContent = hourlySalesArray[i];
+    tr.appendChild(td)
+    salesDataTable.appendChild(tr);
+  }
+};
 GetLocationSalesData.prototype.callPrototypeFunctions = function () {
   this.projectedCustomerPerHour();
   this.projectedCustomerSalesPerHour();
   this.createProjectedSalesTable();
 };
+createSalesDataTableHead();
 new GetLocationSalesData('Seattle', 23, 65, 6.3);
 new GetLocationSalesData('Tokyo', 3, 24, 1.2);
 new GetLocationSalesData('Dubai', 11, 38, 3.7);
 new GetLocationSalesData('Paris', 20, 38, 2.3);
 new GetLocationSalesData('Lima', 23, 65, 4.6);
-// Create a for loop that runs the length of the store locations array and runs the callPrototype function,
-// i'm doing this because i want to make my code as dry as posable.
-// function runPrototype () {
-//   for (let i = 0; i < storeLocationArray.length; i++){
-// callPrototypeFunctions(this)
-//   }
-// };
-
-// runPrototype();
-
-// seattle.callPrototypeFunctions();
-// tokyo.callPrototypeFunctions();
-// dubai.callPrototypeFunctions();
-// paris.callPrototypeFunctions();
-// lima.callPrototypeFunctions();
-// // // turn the call of my prototype individual functions into a single function.
-// callPrototypeFunctions();
-
-
-
-
+createSalesDataFooter();
