@@ -1,51 +1,174 @@
-body{
-  background-image: url(/img/360_F_73938050_ni0APCbbMGllhOGADOq3HhEYnLBwpkoS.jpeg);
+body {
+  background-image: url(../img/backgroundFlower.JPG);
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-}
-header{
-  background-image: url(/img/fish.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  padding: 14%;
-  text-align: center;
-  font-size: 300%;
-  font-style: italic;
-  font-weight: bolder;
-  opacity: 0.9;
+  background-attachment: local;
+  font-family: Arial, Helvetica, sans-serif;
+  }
   
-}
-ul{
-  background-image: url(/img/backgroundFlower.JPG);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: auto;
-  border-radius: 50%;
-  padding: 30em;
-  margin: 5em;
-  text-align: center;
-  opacity: 0.9;
-  font-size: 100%;
-  font-weight: bolder;
-  color: rgb(141, 133, 133);
-}
+  a {
+    color: rgb(255, 255, 255);
+  }
 
-table {
+  header {
+    background-color: #444;
+    height: 100px;
+    opacity: 0.8;
+  }
+
+  h1{
+    color: rgb(255, 255, 255);
+    font-size: 90px;
+    margin-top: 50px;
+    padding-left: 30px;
+  }
+  
+  nav {
+    width: 960;
+    margin: auto;
+  
+  }
+  
+  header img {
+    margin-top: 15px;
+    float: left;
+    margin-left: 130px;
+    width: 200px;
+  }
+  
+  header li {
+    display: inline-block;
+    line-height: 100px;
+    margin-left: 90px;
+    color: black;
+  }
+  
+  header li:first-child {
+    margin-left: 30px;
+  }
+  
+#about {
+  color: aliceblue;
+  line-height: 1.2;
+  margin-top: 200px;
+    width: 50%;
+   height: 400px;
+   overflow: scroll;
+   padding-left: 50px;
+   border-style: none;
+  }
+
+  h3 {
+    font-size: xx-large;
+
+  }
+  
+  footer {
+    height: 100px;
+    background-color: #444;
+    margin-top: 285px;
+    opacity: 0.8;
+  }
+  
+  footer img {
+    margin-top: 15px;
+    float: left;
+    margin-left: 130px;
+    width: 200px;
+  }
+
+  footer li {
+    display: inline-block;
+    line-height: 100px;
+    margin-left: 90px;
+    color: black;
+  }
+  
+  #locations {
+    
+    color: lavenderblush;
+    margin-top: 50px;
+    padding-left: 100px;
+    font-size: x-large;
+    line-height: 4;
+  }
+
+  table{
+  color: rgb(255, 255, 255);
+  background-color: rgba(130, 130, 130, 0.426);
 	border-collapse: separate;
-  border-spacing: 5px;
-  border: medium solid goldenrod;
-  margin: 25px auto;
-}
+  border-spacing: 10px;
+  border: medium solid rgb(32, 114, 139);
+  margin: 50px auto;
+  opacity: 0.9;
+} 
 
 thead, td {
   padding: 10px;
-  border: 1px solid goldenrod;
+  border: 2px solid  rgb(32, 114, 139);
   border-radius: 5px;;
 }
 
 thead {
-  background-color: rgba(218, 165, 32, .5);
+  background-color: rgba(9, 23, 99, 0.5);
   font-weight: bold;
+} 
+
+main h3 {
+  color: rgb(255, 255, 255);
+  padding-left: 50%;
+  margin-top: 50px;
+  
+}
+
+#tShirt {
+  background-image: url(../img/shirt.jpg);
+  background-size: cover;
+  width: 50%;
+  height: 600px;
+  margin-top: 75px;
+}
+
+#tShirt p {
+  padding-top:  20px;
+  padding-left: 30px;
+}
+#cookieCutter {
+  background-image: url(../img/cutter.jpeg);
+  background-size: cover;
+  width: 50%;
+  height: 600px;
+  margin-top: 75px;
+}
+
+#cookieCutter p {
+  padding-top:  20px;
+  padding-left: 30px;
+}
+
+#cookie1 {
+  background-image: url(../img/frosted-cookie.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 50%;
+  height: 600px;
+  margin-top: 75px;
+}
+
+#cookie1 p {
+  padding-top:  20px;
+  padding-left: 30px;
+}
+
+#cookie2 {
+  background-image: url(../img/fishcookie.jpg);
+  background-size: cover;
+  width: 50%;
+  height: 600px;
+  margin-top: 75px;
+}
+
+#cookie2 p {
+  padding-top:  20px;
+  padding-left: 30px;
 }
