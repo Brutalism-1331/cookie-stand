@@ -2,7 +2,8 @@
 const storeHoursArray = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 const salesDataTable = document.querySelector('table')
 const storeLocationArray = [];
-const hourlySalesArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+const hourlySalesArray = [];
+let grandTotal = 0;
 function randomInt(max, min) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
@@ -34,6 +35,7 @@ GetLocationSalesData.prototype.projectedCustomerSalesPerHour = function () {
 //The table must have a daylily sales total and an all shops daylily total.
 // step 1 create element, step 2, give textcontent, step 3 append child.
 function createSalesDataTableHead() {
+  let thead = document.createElement('thead');
   let tr = document.createElement('tr');
   let td = document.createElement('td');
   td.textContent = 'Location:';
@@ -45,8 +47,9 @@ function createSalesDataTableHead() {
   }
   td = document.createElement('td');
   td.textContent = 'Total:';
-  tr.appendChild(td)
-  salesDataTable.appendChild(tr);
+  tr.appendChild(td);
+  thead.appendChild(tr);
+  salesDataTable.appendChild(thead);
 };
 GetLocationSalesData.prototype.createProjectedSalesTable = function () {
   let tr = document.createElement('tr');
@@ -69,12 +72,15 @@ function createSalesDataFooter() {
   let td = document.createElement('td');
   td.textContent = 'Hour Total:';
   tr.appendChild(td);
-  for (let i = 0; i < storeLocationArray.length; i++) {
-    let thisStore = storeLocationArray[i];
-    for (let i = 0; i < thisStore.salesPerHour.length; i++) {
-      let hourSale = thisStore.salesPerHour[i];
-      hourlySalesArray[i] += hourSale;
+  for (let i = 0; i < storeHoursArray.length; i++) {
+    let hourSale = 0;
+    // let thisStore = storeLocationArray[i];
+
+    for (let j = 0; j < storeLocationArray.length; j++) {
+      hourSale += storeLocationArray[j].salesPerHour[i];
     }
+    hourlySalesArray.push(hourSale);
+    grandTotal += hourSale
   };
   salesDataTable.appendChild(tr);
   for (let i = 0; i < hourlySalesArray.length; i++) {
@@ -89,10 +95,10 @@ GetLocationSalesData.prototype.callPrototypeFunctions = function () {
   this.projectedCustomerSalesPerHour();
   this.createProjectedSalesTable();
 };
-createSalesDataTableHead();
 new GetLocationSalesData('Seattle', 23, 65, 6.3);
 new GetLocationSalesData('Tokyo', 3, 24, 1.2);
 new GetLocationSalesData('Dubai', 11, 38, 3.7);
 new GetLocationSalesData('Paris', 20, 38, 2.3);
 new GetLocationSalesData('Lima', 23, 65, 4.6);
+createSalesDataTableHead();
 createSalesDataFooter();
