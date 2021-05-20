@@ -7,6 +7,7 @@ let grandTotal = 0;
 function randomInt(max, min) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
+
 function GetLocationSalesData(locationName, custMin, custMax, averageSales) {
   this.locationName = locationName;
   this.custMin = custMin;
@@ -18,12 +19,14 @@ function GetLocationSalesData(locationName, custMin, custMax, averageSales) {
   storeLocationArray.push(this);
   this.callPrototypeFunctions();
 };
+
 // This function should use the randomInt() function and generate a randomized customer per hour for every hour that the store is open and return the value of each hour to the customersPerHour[],
 GetLocationSalesData.prototype.projectedCustomerPerHour = function () {
   for (let i = 0; i < storeHoursArray.length; i++) {
     this.customersPerHour.push(randomInt(this.custMax, this.custMin));
   }
 };
+
 // This function should take the customersPerHour [] and then * each hour by the average sales of the shop location and then push those totals into salesPerHour[],
 // Each hour total needs to be added to each other and than added to dailySalesTotal.
 GetLocationSalesData.prototype.projectedCustomerSalesPerHour = function () {
@@ -31,6 +34,7 @@ GetLocationSalesData.prototype.projectedCustomerSalesPerHour = function () {
     this.salesPerHour.push(Math.floor(this.customersPerHour[i] * this.avgSales))
   }
 };
+
 //This function should take the salesPerHour[] and create a row of the table shown on the sales html page.
 //The table must have a daylily sales total and an all shops daylily total.
 // step 1 create element, step 2, give textcontent, step 3 append child.
@@ -51,6 +55,7 @@ function createSalesDataTableHead() {
   thead.appendChild(tr);
   salesDataTable.appendChild(thead);
 };
+
 GetLocationSalesData.prototype.createProjectedSalesTable = function () {
   let tr = document.createElement('tr');
   let td = document.createElement('td');
@@ -67,6 +72,7 @@ GetLocationSalesData.prototype.createProjectedSalesTable = function () {
   tr.appendChild(td)
   salesDataTable.appendChild(tr);
 };
+
 function createSalesDataFooter() {
   let tr = document.createElement('tr');
   let td = document.createElement('td');
@@ -90,11 +96,13 @@ function createSalesDataFooter() {
     salesDataTable.appendChild(tr);
   }
 };
+
 GetLocationSalesData.prototype.callPrototypeFunctions = function () {
   this.projectedCustomerPerHour();
   this.projectedCustomerSalesPerHour();
   this.createProjectedSalesTable();
 };
+
 new GetLocationSalesData('Seattle', 23, 65, 6.3);
 new GetLocationSalesData('Tokyo', 3, 24, 1.2);
 new GetLocationSalesData('Dubai', 11, 38, 3.7);
