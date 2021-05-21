@@ -35,6 +35,23 @@ GetLocationSalesData.prototype.projectedCustomerSalesPerHour = function () {
   }
 };
 
+GetLocationSalesData.prototype.createProjectedSalesTable = function () {
+  let tr = document.createElement('tr');
+  let td = document.createElement('td');
+  td.textContent = this.locationName;
+  tr.appendChild(td)
+  for (let i = 0; i < this.salesPerHour.length; i++) {
+    let td = document.createElement('td');
+    td.textContent = this.salesPerHour[i];
+    tr.appendChild(td);
+    this.dailySalesTotal += this.salesPerHour[i];
+  }
+  td = document.createElement('td');
+  td.textContent = this.dailySalesTotal;
+  tr.appendChild(td)
+  salesDataTable.appendChild(tr);
+};
+
 //This function should take the salesPerHour[] and create a row of the table shown on the sales html page.
 //The table must have a daylily sales total and an all shops daylily total.
 // step 1 create element, step 2, give textcontent, step 3 append child.
@@ -56,23 +73,6 @@ function createSalesDataTableHead() {
   salesDataTable.appendChild(thead);
 };
 
-GetLocationSalesData.prototype.createProjectedSalesTable = function () {
-  let tr = document.createElement('tr');
-  let td = document.createElement('td');
-  td.textContent = this.locationName;
-  tr.appendChild(td)
-  for (let i = 0; i < this.salesPerHour.length; i++) {
-    let td = document.createElement('td');
-    td.textContent = this.salesPerHour[i];
-    tr.appendChild(td);
-    this.dailySalesTotal += this.salesPerHour[i];
-  }
-  td = document.createElement('td');
-  td.textContent = this.dailySalesTotal;
-  tr.appendChild(td)
-  salesDataTable.appendChild(tr);
-};
-
 function createSalesDataFooter() {
   let tr = document.createElement('tr');
   let td = document.createElement('td');
@@ -80,7 +80,6 @@ function createSalesDataFooter() {
   tr.appendChild(td);
   for (let i = 0; i < storeHoursArray.length; i++) {
     let hourSale = 0;
-    // let thisStore = storeLocationArray[i];
 
     for (let j = 0; j < storeLocationArray.length; j++) {
       hourSale += storeLocationArray[j].salesPerHour[i];
@@ -92,9 +91,13 @@ function createSalesDataFooter() {
   for (let i = 0; i < hourlySalesArray.length; i++) {
     td = document.createElement('td');
     td.textContent = hourlySalesArray[i];
-    tr.appendChild(td)
+    tr.appendChild(td);
     salesDataTable.appendChild(tr);
   }
+  td = document.createElement('td');
+  td.textContent = grandTotal;
+  tr.appendChild(td);
+  salesDataTable.appendChild(tr);
 };
 
 GetLocationSalesData.prototype.callPrototypeFunctions = function () {
