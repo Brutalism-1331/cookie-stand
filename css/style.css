@@ -172,3 +172,9 @@ main h3 {
   padding-top:  20px;
   padding-left: 30px;
 }
+
+form {
+  color: aliceblue;
+  margin-top: 20px;
+  padding-left: 100px;
+}
