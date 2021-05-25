@@ -85,7 +85,8 @@ body {
   }
   
   #locations {
-    
+    font-family: 'Mate SC', serif;
+    text-decoration: underline;
     color: lavenderblush;
     margin-top: 50px;
     padding-left: 100px;
@@ -94,6 +95,7 @@ body {
   }
 
   table{
+  font-family: 'Prompt', sans-serif;
   color: rgb(255, 255, 255);
   background-color: rgba(130, 130, 130, 0.426);
 	border-collapse: separate;
@@ -115,7 +117,8 @@ thead {
 } 
 
 main h3 {
-  color: rgb(255, 255, 255);
+  font-family: 'Pattaya', sans-serif;
+  color: aquamarine;
   padding-left: 50%;
   margin-top: 50px;
   
@@ -178,3 +181,13 @@ form {
   margin-top: 20px;
   padding-left: 100px;
 }
+
+p {
+  font-family: 'Playfair Display', serif;
+}
+
+h1 {
+  font-family: 'Pattaya', sans-serif;
+  color: aquamarine;
+}
+
